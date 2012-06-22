@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'test/unit'
-require 'runt'
+require File.expand_path('../runt/lib/') + '/runt'
 require 'date'
 require 'time'
 

@@ -32,11 +32,16 @@ EOF
 
 end
 
-require 'newgem/tasks'
+# require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
 
 # TODO - want other tests/tasks run by default? Add them to the list
 # remove_task :default
 # task :default => [:spec, :features]
 
-
+task :run_tests do
+	Dir.foreach('test/') do |item|
+  		next if item == '.' or item == '..'
+		sh 'ruby -ITest test/' + item
+	end
+end
